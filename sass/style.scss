@@ -9,21 +9,27 @@ $motion : .3s all ease;
     position: relative;
     width: 100%;
     display: inline-block;
+    overflow: hidden;
     &__slide{
+        position: absolute;
+        left: -100%;
         width: 100%;
-        display: none;
+        top: 0;
         &--show{
+            left: 0;
+            z-index: 2;
             display: block;
+            position: relative;
         }
     }
-    &__img{
+    &__slide > img{
         width: 100%;
     }
     &__arrows{
         position: absolute;
         width: 100%;
         top: 50%;
-        z-index: 10;
+        z-index: 3;
         transform: translateY(-50%);
     }
     &__rightArrow {
@@ -38,4 +44,59 @@ $motion : .3s all ease;
         left: 24px;
         cursor: pointer;
     }
+    &__index{
+        position: absolute;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+    }
+    &__line{
+        width: 16px;
+        height: 2px;
+        background-color: rgba(255, 255, 255, 0.5);
+        margin: 0 2px 0 2px ;
+        float: left;
+    }
+    &__line--active{
+        background-color: white;
+        margin: 0 2px 0 2px ;
+        float: left;
+    }
+}
+.rtl--in{
+    animation-name: rtlIn;
+    animation-duration: .5s;
+}
+@keyframes rtlIn{
+    from {left:-100%}
+    to {left:0}
+}
+.rtl--out{
+    left: 100%;
+    display: block;
+    animation-name: rtlOut;
+    animation-duration: .5s;
+}
+@keyframes rtlOut{
+    from {left:0 }
+    to {left:100% }
+}
+.ltr--in{
+    animation-name: ltrIn;
+    animation-duration: .5s;
+}
+@keyframes ltrIn{
+    from {left:100%}
+    to {left:0}
+}
+.ltr--out{
+    left: -100%;
+    display: block;
+    animation-name: ltrOut;
+    animation-duration: .5s;
+}
+@keyframes ltrOut{
+    from {left:0 }
+    to {left:-100% }
 }

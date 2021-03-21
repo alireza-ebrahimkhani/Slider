@@ -9,18 +9,24 @@
   position: relative;
   width: 100%;
   display: inline-block;
+  overflow: hidden;
 }
 
 .slider__slide {
+  position: absolute;
+  left: -100%;
   width: 100%;
-  display: none;
+  top: 0;
 }
 
 .slider__slide--show {
+  left: 0;
+  z-index: 2;
   display: block;
+  position: relative;
 }
 
-.slider__img {
+.slider__slide > img {
   width: 100%;
 }
 
@@ -28,7 +34,7 @@
   position: absolute;
   width: 100%;
   top: 50%;
-  z-index: 10;
+  z-index: 3;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
 }
@@ -45,5 +51,132 @@
   position: absolute;
   left: 24px;
   cursor: pointer;
+}
+
+.slider__index {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: 2;
+}
+
+.slider__line {
+  width: 16px;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.5);
+  margin: 0 2px 0 2px;
+  float: left;
+}
+
+.slider__line--active {
+  background-color: white;
+  margin: 0 2px 0 2px;
+  float: left;
+}
+
+.rtl--in {
+  -webkit-animation-name: rtlIn;
+          animation-name: rtlIn;
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
+}
+
+@-webkit-keyframes rtlIn {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 0;
+  }
+}
+
+@keyframes rtlIn {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 0;
+  }
+}
+
+.rtl--out {
+  left: 100%;
+  display: block;
+  -webkit-animation-name: rtlOut;
+          animation-name: rtlOut;
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
+}
+
+@-webkit-keyframes rtlOut {
+  from {
+    left: 0;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+@keyframes rtlOut {
+  from {
+    left: 0;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+.ltr--in {
+  -webkit-animation-name: ltrIn;
+          animation-name: ltrIn;
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
+}
+
+@-webkit-keyframes ltrIn {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0;
+  }
+}
+
+@keyframes ltrIn {
+  from {
+    left: 100%;
+  }
+  to {
+    left: 0;
+  }
+}
+
+.ltr--out {
+  left: -100%;
+  display: block;
+  -webkit-animation-name: ltrOut;
+          animation-name: ltrOut;
+  -webkit-animation-duration: .5s;
+          animation-duration: .5s;
+}
+
+@-webkit-keyframes ltrOut {
+  from {
+    left: 0;
+  }
+  to {
+    left: -100%;
+  }
+}
+
+@keyframes ltrOut {
+  from {
+    left: 0;
+  }
+  to {
+    left: -100%;
+  }
 }
 /*# sourceMappingURL=style.css.map */
